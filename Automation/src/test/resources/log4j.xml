@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j">
+
+<!--  Console Appender -->
+
+<appender name="console" class= "org.apache.log4j.ConsoleAppender">
+<param name="Target" value="System.out"/>
+<layout class="org.apache.log4j.PatternLayout">
+        <param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss}%-5p %c{1}:%L -%m%n"/>
+       
+</layout>
+</appender>
+<!-- html appender -->
+<appender name="htmlAppender" class="org.apache.log4j.DailyRollingAppender">
+<param name="File" value="C:\Users\troyt\Desktop\project\school\src\test\resources\log4j.html"/>
+<param name = "DatePattern" value="'.'yyyy-MM-dd-HH'.html'"/>
+<layout class="org.apache.log4j.HTMLLayout"/>
+</appender>
+
+<!--Root Configuration-->
+<Loggers>
+<root>
+<level value="INFO"></level>
+<AppenderRef ref="console" />
+<AppenderRef ref="htmlappender"/>
+</root>
+</Loggers>
+</log4j:configuration>
